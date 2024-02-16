@@ -36,14 +36,13 @@
     - switch statement can use fall through 
     - No multiple classes in single file => new class = new file 
 
-## Assignment 4 - Customer tracker 
+## Assignment 4 - Customer tracker  - Focus on this Assingment
     - Extension Methods are on the test
         - Review and practice them
     - classes customer, person, perferredCustomer 
     - Assignemnt focuses on inheritance 
     - need to use a backing field if you need to customize a getter or setter 
-    - could put perferredCustomers in Customers[] because of polymorphism (same type (sub types of Person class))
-    - Focus on this Assingment 
+    - could put perferredCustomers in Customers[] because of polymorphism (same type (sub types of Person class)) 
         - Array of derived object types 
         - classes and sub classes 
     - Using multiple class types on the Test 
@@ -51,5 +50,5 @@
 ## Assignment 5 - War Card Game 
  
     - class deck, card, player, game, suit (enum), Round 
-    - operator overloading 
+    - operator overloading and enums on the test
 
