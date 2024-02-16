@@ -51,5 +51,6 @@
 ## Assignment 5 - War Card Game 
  
     - class deck, card, player, game, suit (enum), Round 
-    - operator overloading 
+    - operator overloading and enums on the test
+
 
