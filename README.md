@@ -215,6 +215,65 @@
     }
     ```
 
+### Output 
+
+    ```
+    Enter the Customer's Name:
+    brock
+    Enter the Customer's Address:
+    1
+    Enter the Customer's Phone Number:
+    6727628901
+    Enter the Customer Number:
+    1
+    Would the customer like to sign up for the mailing list? (y/n):
+    y
+    Enter the amount spent last year by the customer: 2000
+    Enter the Customer's Name:
+    Yuji
+    Enter the Customer's Address:
+    2
+    Enter the Customer's Phone Number:
+    1234567890
+    Enter the Customer Number:
+    2
+    Would the customer like to sign up for the mailing list? (y/n):
+    n
+    Enter the amount spent last year by the customer: 750
+    Enter the Customer's Name:
+    Levi
+    Enter the Customer's Address:
+    3
+    Enter the Customer's Phone Number:
+    3216540987
+    Enter the Customer Number:
+    3
+    Would the customer like to sign up for the mailing list? (y/n):
+    n
+    Enter the amount spent last year by the customer: 0
+    Name: brock
+    Address: 1
+    Phone Number: (672) 762-8901
+    Customer Number: 1
+    On Mailing List: True
+    Customer Purchases: $2,000.00
+    Discount Level: 0.00%
+    Name: Yuji
+    Address: 2
+    Phone Number: (123) 456-7890
+    Customer Number: 2
+    On Mailing List: False
+    Customer Purchases: $750.00
+    Discount Level: 0.00%
+    Name: Levi
+    Address: 3
+    Phone Number: (321) 654-0987
+    Customer Number: 3
+    On Mailing List: False
+    Customer Purchases: $0.00
+    Discount Level: 0.00%
+    ```
+
 ## Assignment 5 - War Card Game 
  
     - class deck, card, player, game, suit (enum), Round 
