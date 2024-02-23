@@ -47,6 +47,35 @@
         - classes and sub classes 
     - Using multiple class types on the Test 
 
+## My Code 
+
+### Person Class 
+```
+    class Person
+    {
+        //Properties ++ Getters & Setters
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string PhoneNumber { get; set; }
+
+        //Constructor
+        public Person(string name, string address, string phoneNumber)
+        {
+            Name = name;
+            Address = address;
+            PhoneNumber = phoneNumber;
+        }
+
+        // Override the default ToString method to provide a custom string representation of the object.
+        public override string ToString()
+        {
+            //Format the output to be this string 
+            return $"Name: {Name}, Address: {Address}, Phone Number: {PhoneNumber}";
+        }
+    }
+```
+### Customer Class
+
 ## Assignment 5 - War Card Game 
  
     - class deck, card, player, game, suit (enum), Round 
