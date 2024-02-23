@@ -13,7 +13,7 @@ namespace Test1Review
         public bool OnMailingList;
 
         //initalizing name, address, phoneNumber from parent class 
-        public Customer(int customerNumber, bool onMailingList, string name, string address, string phoneNumber ) 
+        public Customer(int customerNumber, bool onMailingList, string name, string address, string phoneNumber) 
             : base(name, address, phoneNumber)
         {
             CustomerNumber = customerNumber;
@@ -23,7 +23,7 @@ namespace Test1Review
         //samething as parent 
         public override string ToString()
         {
-            return $"Customer Number: {CustomerNumber}, On Mailing List? {IsOnMailingList}";
+            return $"Customer Number: {CustomerNumber}, On Mailing List? {OnMailingList}";
         }
     }
 }

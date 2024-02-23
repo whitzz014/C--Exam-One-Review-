@@ -50,54 +50,170 @@
 ## My Code 
 
 ### Person Class 
-```
-    class Person
-    {
-        //Properties ++ Getters & Setters
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string PhoneNumber { get; set; }
-
-        //Constructor
-        public Person(string name, string address, string phoneNumber)
+    ```
+        class Person
         {
-            Name = name;
-            Address = address;
-            PhoneNumber = phoneNumber;
-        }
+            //Properties ++ Getters & Setters
+            public string Name { get; set; }
+            public string Address { get; set; }
+            public string PhoneNumber { get; set; }
 
-        // Override the default ToString method to provide a custom string representation of the object.
-        public override string ToString()
-        {
-            //Format the output to be this string 
-            return $"Name: {Name}, Address: {Address}, Phone Number: {PhoneNumber}";
+            //Constructor
+            public Person(string name, string address, string phoneNumber)
+            {
+                Name = name;
+                Address = address;
+                PhoneNumber = phoneNumber;
+            }
+
+            // Override the default ToString method to provide a custom string representation of the object.
+            public override string ToString()
+            {
+                //Format the output to be this string 
+                return $"Name: {Name}, Address: {Address}, Phone Number: {PhoneNumber}";
+            }
         }
-    }
-```
+    ```
 ### Customer Class
 
-```
-    class Customer : Person
-    {
-        //Properties
-        public int CustomerNumber;
-        public bool OnMailingList;
-
-        //initalizing name, address, phoneNumber from parent class 
-        public Customer(int customerNumber, bool onMailingList, string name, string address, string phoneNumber ) 
-            : base(name, address, phoneNumber)
+    ```
+        class Customer : Person
         {
-            CustomerNumber = customerNumber;
-            OnMailingList = onMailingList;
+            //Properties
+            public int CustomerNumber;
+            public bool OnMailingList;
+
+            //initalizing name, address, phoneNumber from parent class 
+            public Customer(int customerNumber, bool onMailingList, string name, string address, string phoneNumber ) 
+                : base(name, address, phoneNumber)
+            {
+                CustomerNumber = customerNumber;
+                OnMailingList = onMailingList;
+            }
+
+            //samething as parent 
+            public override string ToString()
+            {
+                return $"Customer Number: {CustomerNumber}, On Mailing List? {IsOnMailingList}";
+            }
         }
+    ```
 
-        //samething as parent 
-        public override string ToString()
+### Preferred Customer 
+    ```
+    class PreferredCustomer : Customer
         {
-            return $"Customer Number: {CustomerNumber}, On Mailing List? {IsOnMailingList}";
+           
+            //Properties 
+            public int AmountSpent {get; set;}
+        
+            // Public property with a custom getter 
+            public double DiscountLevel
+            {
+                get
+                {
+                    //if to set custom discount amounts 
+                    if (AmountSpent >= 2000)
+                    {
+                        return 0.1;
+                    }
+                    else if (AmountSpent >= 1500)
+                    {
+                        return 0.07;
+                    }
+                    else if (AmountSpent >= 1000)
+                    {
+                        return 0.06;
+                    }
+                    else if (AmountSpent >= 500)
+                    {
+                        return 0.05;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+            }
+
+            public PreferredCustomer(string name, string address, string phoneNumber, int customerNumber, bool onMailingList, int amountSpent)
+                : base( customerNumber,  onMailingList,  name,  address,  phoneNumber)
+            {
+                AmountSpent = amountSpent;
+            }
+
+            public override string ToString()
+            {
+                return $"Name: {Name}\n Address: {Address}\n Phone Number: {PhoneNumber.ToPhoneNumber()}\n " +
+                    $"Customer Number: {CustomerNumber}\n On Mailing List: {OnMailingList}\n " +
+                    $"Customer Purchases: {Extension.ToCurrency(AmountSpent)}\n Discount Level: {DiscountLevel.ToPercentage()}"; ;
+            }
+        }
+    ```
+### Extension 
+    ```
+    static class Extension
+        {
+            public static string ToPercentage(this double value)
+            {
+                //P repersents percentage
+                return $"{value:P}";
+            }
+
+            public static string ToCurrency(this double value)
+            {
+                // C=>currency
+                return $"{value:C}";
+            }
+
+            public static string ToPhoneNumber(this string phoneNumber)
+            {
+                return $"({phoneNumber.Substring(0, 3)}) {phoneNumber.Substring(3, 3)}-{phoneNumber.Substring(6)}";
+            }
+        }
+    ```
+
+### Program 
+
+    ```
+     class Program
+    {
+        static void Main(string[] args)
+        {
+            Customer[] customers = new Customer[3];
+
+            //Runs the program 3 times 
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("Enter the Customer's Name: ");
+                string name = Console.ReadLine();
+
+                Console.WriteLine("Enter the Customer's Address: ");
+                string address = Console.ReadLine();
+
+                Console.WriteLine("Enter the Customer's Phone Number: ");
+                string pNumber = Console.ReadLine();
+
+                Console.WriteLine("Enter the Customer Number: ");
+                int cNumber = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Would the customer like to sign up for the mailing list? (y/n): ");
+                bool isOnMailingList = Console.ReadLine().Trim().ToLower() == "y";
+
+                Console.Write("Enter the amount spent last year by the customer: ");
+                int amountSpentLastYear = int.Parse(Console.ReadLine());
+
+                //insert depending on value of i (which turn is it)
+                customers[i] = new PreferredCustomer(name, address, pNumber, cNumber, isOnMailingList, amountSpentLastYear);
+            }
+            // displays based to string  method for every  object in customers array
+            foreach (var customer in customers)
+            {
+                Console.WriteLine(customer.ToString());
+            }
         }
     }
-```
+    ```
 
 ## Assignment 5 - War Card Game 
  
